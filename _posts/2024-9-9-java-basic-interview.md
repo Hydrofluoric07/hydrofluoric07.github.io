@@ -159,7 +159,7 @@ BigInteger 内部使⽤ int[] 数组来存储任意⼤⼩的整形数据。 相�
 
 引⽤拷⻉就是两个不同的引⽤指向同⼀个对象
 
-![java-clone](/C:/Users/admin/AppData/Roaming/Typora/typora-user-images/java-clone.png)
+![java-clone](/assets/img/2024-9-9-java-basic-interview/java-clone.png)
 
 ### == 和 equals() 的区别
 
