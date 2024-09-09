@@ -2,7 +2,7 @@
 title: Java基础面试题
 date: 2024-09-09 20:05:56 +0800
 categories: [blog, java]
-tags: [java, note, 面试]     # TAG names should always be lowercase
+tags: [java, note, interview]     # TAG names should always be lowercase
 ---
 ## Java基础(上)
 
