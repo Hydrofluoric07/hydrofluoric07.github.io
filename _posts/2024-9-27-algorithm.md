@@ -22,3 +22,43 @@ public int binarySearch(int[] nums,int targer){
 }
 ```
 
+## 单调栈
+
+### [每日温度](https://leetcode.cn/problems/daily-temperatures/solutions/2470179/shi-pin-jiang-qing-chu-wei-shi-yao-yao-y-k0ks/)
+
+![image-20240928195708109](/assets/img/2024-9-27-algorithm/image-20240928195708109.png)
+
+从左到右：1入栈，4入栈是1的下一个更大温度，记录答案且1无用了，删除，3入，5入，4和3的下一个更大温度就是5，4和3无用了，删除......形成一个单调递增栈结构
+
+从右往左：6入，3入，2入，5入，往右遍历，6是答案，5比2和3大，所以不可能是前面的数的答案了，删除......形成一个单调递减栈的结构
+
+及时去掉无用元素，维护栈内元素有序
+
+### [接雨水]()
+
+![image-20240928202106363](/assets/img/2024-9-27-algorithm/image-20240928202106363.png)
+
+横着计算，面积由当前元素（放入栈中打破单调严格递减的元素）下标，栈顶元素下标、栈顶下的元素下标决定，若栈顶元素出栈后栈为空则退出，否则计算答案并累加
+
+```java
+class Solution {
+    public int trap(int[] height) {
+        int ans = 0;
+        Stack<Integer> st = new Stack<>();
+        for (int i = 0; i < height.length; i++) {
+            while (!st.empty() && height[i] >= height[st.peek()]) {
+                int bottomH = height[st.pop()];
+                if (st.empty()) {
+                    break;
+                }
+                int left = st.peek();
+                int dh = Math.min(height[left], height[i]) - bottomH;
+                ans += dh * (i - left - 1);
+            }
+            st.push(i);
+        }
+        return ans;
+    }
+}
+```
+
