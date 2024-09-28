@@ -34,7 +34,7 @@ public int binarySearch(int[] nums,int targer){
 
 及时去掉无用元素，维护栈内元素有序
 
-### [接雨水]()
+### [接雨水](https://leetcode.cn/problems/trapping-rain-water/)
 
 ![image-20240928202106363](/assets/img/2024-9-27-algorithm/image-20240928202106363.png)
 
