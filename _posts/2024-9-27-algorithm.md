@@ -62,3 +62,51 @@ class Solution {
 }
 ```
 
+## 滑动窗口
+
+[长度最小的子数组]( https://leetcode.cn/problems/minimum-size-subarray-sum/solution/biao-ti-xia-biao-zong-suan-cuo-qing-kan-k81nh/)
+
+[无重复字符的最长子串](https://leetcode.cn/problems/longest-substring-without-repeating-characters/solution/xia-biao-zong-suan-cuo-qing-kan-zhe-by-e-iaks/)
+
+[乘积小于 K 的子数组]( https://leetcode.cn/problems/subarray-product-less-than-k/solution/xia-biao-zong-suan-cuo-qing-kan-zhe-by-e-jebq/)
+
+```java
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
+        int ans=0,n=s.length();
+        char[] ch=s.toCharArray();
+        int[] hash=new int[128];
+        int l=0;
+        for(int i=0;i<n;i++){
+            hash[ch[i]]++;
+            while(hash[ch[i]]>1){
+                hash[ch[l++]]--;
+            }
+            ans=Math.max(ans,i-l+1);
+        }
+        return ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public int minSubArrayLen(int target, int[] nums) {
+        int n=nums.length;
+        int ans=n+1;
+        int sum=0;
+        int l=0;
+        for(int i=0;i<n;i++){
+            sum+=nums[i];
+            while(sum>=target){
+                ans=Math.min(ans,i-l+1);
+                sum-=nums[l];
+                l++;
+            }
+        }
+        return ans>n?0:ans;
+    }
+}
+```
+
+利用所有数都是正整数，遍历到的当前数导致整个子数组不满足条件时，左指针右移并移除相关元素，进行计算
