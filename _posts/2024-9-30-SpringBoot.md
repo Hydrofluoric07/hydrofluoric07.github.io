@@ -107,6 +107,58 @@ SpringBoot提供了三种内嵌的数据库，H2，HSQL，Derby
 
 ![image-20241003170609968](/assets/img/2024-9-27-SpringBoot/image-20241003170609968.png)
 
-#### 整合Redis
+#### Redis
 
 导入spring-boot-starter-data-redis，配置，注入RedisTemplate，使用
+
+![image-20241004155913932](/assets/img/2024-9-27-SpringBoot/image-20241004155913932.png)
+
+#### MongoDB
+
+MongoDB是一个开源、高性能、无模式的文档型数据库，NoSQL数据库产品中的一种，是最像关系型数据库的非关系型数据库
+
+适用数据特征：永久性存储与临时存储相结合、修改频度较高
+
+![image-20241004161618104](/assets/img/2024-9-27-SpringBoot/image-20241004161618104.png)
+
+![image-20241004161631922](/assets/img/2024-9-27-SpringBoot/image-20241004161631922.png)
+
+导入spring-boot-starter-data-mongodb，配置，注入MongoTemplate使用
+
+#### ElasticSearch
+
+![image-20241004172644769](/assets/img/2024-9-27-SpringBoot/image-20241004172644769.png)
+
+![image-20241004172610187](/assets/img/2024-9-27-SpringBoot/image-20241004172610187.png)
+
+![image-20241004172738898](/assets/img/2024-9-27-SpringBoot/image-20241004172738898.png)
+
+1、导入spring-boot-starter-data-elasticsearch，配置，注入ElasticSearchRestTemplate
+
+2、导入elasticsearch-rest-high-level-client，初始化RestHighLevelClient
+
+![image-20241004173712597](/assets/img/2024-9-27-SpringBoot/image-20241004173712597.png)
+
+![image-20241004173752470](/assets/img/2024-9-27-SpringBoot/image-20241004173752470.png)
+
+@BeforeEach、@AfterEach是SpringBoot Test提供的
+
+![image-20241004173807373](/assets/img/2024-9-27-SpringBoot/image-20241004173807373.png)
+
+![image-20241004174749041](/assets/img/2024-9-27-SpringBoot/image-20241004174749041.png)
+
+![image-20241004174817189](/assets/img/2024-9-27-SpringBoot/image-20241004174817189.png)
+
+![image-20241004174827700](/assets/img/2024-9-27-SpringBoot/image-20241004174827700.png)
+
+![image-20241004175526641](/assets/img/2024-9-27-SpringBoot/image-20241004175526641.png)
+
+![image-20241004175540822](/assets/img/2024-9-27-SpringBoot/image-20241004175540822.png)
+
+### SpringBoot缓存
+
+缓存是一种介于数据永久存储介质与数据应用之间的数据临时存储介质，可以有效的减少低速数据读取过程的次数（例如磁盘IO），提高系统性能，还可以提供临时的数据存储空间
+
+导入spring-boot-starter-cache，启动类@EnableCaching
+
+![image-20241004181104748](/assets/img/2024-9-27-SpringBoot/image-20241004181104748.png)
