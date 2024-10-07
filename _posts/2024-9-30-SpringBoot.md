@@ -162,3 +162,186 @@ MongoDB是一个开源、高性能、无模式的文档型数据库，NoSQL数�
 导入spring-boot-starter-cache，启动类@EnableCaching
 
 ![image-20241004181104748](/assets/img/2024-9-27-SpringBoot/image-20241004181104748.png)
+
+缓存中存在返回值，否则执行方法，注意对应类需要被容器管理
+
+#### 使用ehcache
+
+导入，配置pom.xml、ehcache.xml
+
+#### 数据淘汰策略
+
+![image-20241007083111605](/assets/img/2024-9-27-SpringBoot/image-20241007083111605.png)
+
+#### 使用Redis
+
+导入，配置pom.xml
+
+#### 使用memcached
+
+![image-20241007083924192](/assets/img/2024-9-27-SpringBoot/image-20241007083924192.png)
+
+![image-20241007084815357](/assets/img/2024-9-27-SpringBoot/image-20241007084815357.png)
+
+#### 使用jetcache
+
+对SpringCache:进行了封装，在原有功能基础上实现了多级缓存、缓存统计、自动刷新、异步调用、数据报表等功能
+
+![image-20241007085202172](/assets/img/2024-9-27-SpringBoot/image-20241007085202172.png)
+
+![image-20241007091218714](/assets/img/2024-9-27-SpringBoot/image-20241007091218714.png)
+
+![image-20241007091301252](/assets/img/2024-9-27-SpringBoot/image-20241007091301252.png)
+
+![image-20241007091327515](/assets/img/2024-9-27-SpringBoot/image-20241007091327515.png)
+
+![image-20241007091341932](/assets/img/2024-9-27-SpringBoot/image-20241007091341932.png)
+
+启用方法注解
+
+![image-20241007092413248](/assets/img/2024-9-27-SpringBoot/image-20241007092413248.png)
+
+![image-20241007092504165](/assets/img/2024-9-27-SpringBoot/image-20241007092504165.png)
+
+#### j2cache
+
+一个缓存整合框架，可以提供缓存的整合方案，使各种缓存搭配使用，自身不提供缓存功能
+
+### Spring任务
+
+#### Quartz
+
+![image-20241007094723850](/assets/img/2024-9-27-SpringBoot/image-20241007094723850.png)
+
+![image-20241007095553578](/assets/img/2024-9-27-SpringBoot/image-20241007095553578.png)
+
+![image-20241007095609247](/assets/img/2024-9-27-SpringBoot/image-20241007095609247.png)
+
+#### Task
+
+@EnableScheduling
+
+![image-20241007100523046](/assets/img/2024-9-27-SpringBoot/image-20241007100523046.png)
+
+![image-20241007100533457](/assets/img/2024-9-27-SpringBoot/image-20241007100533457.png)
+
+### Spring邮件
+
+![image-20241007100922369](/assets/img/2024-9-27-SpringBoot/image-20241007100922369.png)
+
+![image-20241007101651831](/assets/img/2024-9-27-SpringBoot/image-20241007101651831.png)
+
+![image-20241007101708405](/assets/img/2024-9-27-SpringBoot/image-20241007101708405.png)
+
+### Spring消息
+
+同步消息、异步消息
+
+![image-20241007102941921](/assets/img/2024-9-27-SpringBoot/image-20241007102941921.png)
+
+企业级应用中广泛使用的三种异步消息传递技术JMS、AMQP、MQTT
+
+![image-20241007103323256](/assets/img/2024-9-27-SpringBoot/image-20241007103323256.png)
+
+![image-20241007103632325](/assets/img/2024-9-27-SpringBoot/image-20241007103632325.png)
+
+#### 案例
+
+![image-20241007103911900](/assets/img/2024-9-27-SpringBoot/image-20241007103911900.png)
+
+#### Active MQ
+
+![image-20241007110357760](/assets/img/2024-9-27-SpringBoot/image-20241007110357760.png)
+
+![image-20241007110443985](/assets/img/2024-9-27-SpringBoot/image-20241007110443985.png)
+
+![image-20241007110455969](/assets/img/2024-9-27-SpringBoot/image-20241007110455969.png)
+
+![image-20241007110507834](/assets/img/2024-9-27-SpringBoot/image-20241007110507834.png)
+
+#### Rabit MQ
+
+![image-20241007145641193](/assets/img/2024-9-27-SpringBoot/image-20241007145641193.png)
+
+导入spring-boot-statter-amqp，配置
+
+##### 直连交换机模式
+
+![image-20241007150720488](/assets/img/2024-9-27-SpringBoot/image-20241007150720488.png)
+
+![image-20241007150735681](/assets/img/2024-9-27-SpringBoot/image-20241007150735681.png)
+
+![image-20241007150753910](/assets/img/2024-9-27-SpringBoot/image-20241007150753910.png)
+
+![image-20241007150814336](/assets/img/2024-9-27-SpringBoot/image-20241007150814336.png)
+
+![image-20241007150826384](/assets/img/2024-9-27-SpringBoot/image-20241007150826384.png)
+
+##### 主题交换机模式
+
+![image-20241007151521631](/assets/img/2024-9-27-SpringBoot/image-20241007151521631.png)
+
+![image-20241007151545089](/assets/img/2024-9-27-SpringBoot/image-20241007151545089.png)
+
+![image-20241007151623104](/assets/img/2024-9-27-SpringBoot/image-20241007151623104.png)
+
+![image-20241007151631446](/assets/img/2024-9-27-SpringBoot/image-20241007151631446.png)
+
+#### RocketMQ
+
+![image-20241007151846972](/assets/img/2024-9-27-SpringBoot/image-20241007151846972.png)
+
+![image-20241007152040939](/assets/img/2024-9-27-SpringBoot/image-20241007152040939.png)
+
+![image-20241007152525916](/assets/img/2024-9-27-SpringBoot/image-20241007152525916.png)
+
+![image-20241007152539839](/assets/img/2024-9-27-SpringBoot/image-20241007152539839.png)
+
+导入rocketmq-spring-boot-starter
+
+![image-20241007153346734](/assets/img/2024-9-27-SpringBoot/image-20241007153346734.png)
+
+![image-20241007153402308](/assets/img/2024-9-27-SpringBoot/image-20241007153402308.png)
+
+![image-20241007153417529](/assets/img/2024-9-27-SpringBoot/image-20241007153417529.png)
+
+![image-20241007153425471](/assets/img/2024-9-27-SpringBoot/image-20241007153425471.png)
+
+#### Kafka
+
+![image-20241007153832214](/assets/img/2024-9-27-SpringBoot/image-20241007153832214.png)
+
+![image-20241007153901634](/assets/img/2024-9-27-SpringBoot/image-20241007153901634.png)
+
+![image-20241007154024738](/assets/img/2024-9-27-SpringBoot/image-20241007154024738.png)
+
+导入spring-kafka
+
+![image-20241007155928237](/assets/img/2024-9-27-SpringBoot/image-20241007155928237.png)
+
+![image-20241007155936430](/assets/img/2024-9-27-SpringBoot/image-20241007155936430.png)
+
+![image-20241007155945272](/assets/img/2024-9-27-SpringBoot/image-20241007155945272.png)
+
+### 监控
+
+![image-20241007160119999](/assets/img/2024-9-27-SpringBoot/image-20241007160119999.png)
+
+显示监控信息的服务器：用于获取服务信息，并显示对应的信息
+运行的服务：启动时主动上报，告知监控服务器自己需要受到监控
+
+#### Spring Boot Admin
+
+服务端导入spring-boot-admin-starter-server，注解@EnableAdminServer，客户端导入spring-boot-admin-starter-client
+
+![image-20241007162546796](/assets/img/2024-9-27-SpringBoot/image-20241007162546796.png)
+
+![image-20241007162950846](/assets/img/2024-9-27-SpringBoot/image-20241007162950846.png)
+
+![image-20241007163612579](/assets/img/2024-9-27-SpringBoot/image-20241007163612579.png)
+
+![image-20241007163647863](/assets/img/2024-9-27-SpringBoot/image-20241007163647863.png)
+
+可以为info、health、metrics等自定义指标控制
+
+![image-20241007170101755](/assets/img/2024-9-27-SpringBoot/image-20241007170101755.png)
