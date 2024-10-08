@@ -345,3 +345,99 @@ MongoDB是一个开源、高性能、无模式的文档型数据库，NoSQL数�
 可以为info、health、metrics等自定义指标控制
 
 ![image-20241007170101755](/assets/img/2024-9-27-SpringBoot/image-20241007170101755.png)
+
+## 原理篇
+
+### bean的加载方式
+
+#### 方式1
+
+![image-20241008075046590](/assets/img/2024-9-27-SpringBoot/image-20241008075046590.png)
+
+ #### 方式2![image-20241008075927294](/assets/img/2024-9-27-SpringBoot/image-20241008075927294.png)
+
+![image-20241008075942073](/assets/img/2024-9-27-SpringBoot/image-20241008075942073.png)
+
+#### 方式3![image-20241008080341477](/assets/img/2024-9-27-SpringBoot/image-20241008080341477.png)
+
+##### FactoryBean接口
+
+![image-20241008080858945](/assets/img/2024-9-27-SpringBoot/image-20241008080858945.png)
+
+![image-20241008081230826](/assets/img/2024-9-27-SpringBoot/image-20241008081230826.png)
+
+##### ProxyBeanMethods
+
+![image-20241008081857217](/assets/img/2024-9-27-SpringBoot/image-20241008081857217.png)
+
+默认值为true，通过book()获取的对象实际上是同一个对象
+
+#### 加载方式4
+
+无侵入式
+
+![image-20241008082352549](/assets/img/2024-9-27-SpringBoot/image-20241008082352549.png)
+
+![image-20241008082542947](/assets/img/2024-9-27-SpringBoot/image-20241008082542947.png)
+
+#### 加载方式5
+
+![image-20241008082942873](/assets/img/2024-9-27-SpringBoot/image-20241008082942873.png)
+
+#### 加载方式6
+
+可以根据条件加载什么类型bean
+
+![image-20241008083746802](/assets/img/2024-9-27-SpringBoot/image-20241008083746802.png)
+
+#### 加载方式7
+
+![image-20241008085445912](/assets/img/2024-9-27-SpringBoot/image-20241008085445912.png)
+
+#### 加载方式8
+
+![image-20241008090108683](/assets/img/2024-9-27-SpringBoot/image-20241008090108683.png)
+
+![image-20241008090142974](/assets/img/2024-9-27-SpringBoot/image-20241008090142974.png)
+
+### bean的加载控制
+
+bean的加载控制指根据特定情况对bean进行选择性加载以达到适用于项目的目标。
+
+编程形式：
+
+![image-20241008091134391](/assets/img/2024-9-27-SpringBoot/image-20241008091134391.png)
+
+注解形式：
+
+@Conditional注解及其子注解，匹配类、环境等
+
+### bean依赖属性控制
+
+![image-20241008093539727](/assets/img/2024-9-27-SpringBoot/image-20241008093539727.png)
+
+![image-20241008093626626](/assets/img/2024-9-27-SpringBoot/image-20241008093626626.png)
+
+![image-20241008093642761](/assets/img/2024-9-27-SpringBoot/image-20241008093642761.png)
+
+业务bean应尽量避免设置强制加载，而是根据需要导入后加载，降低spring容器管理bean的强度
+
+### 自动配置原理
+
+![image-20241008094148010](/assets/img/2024-9-27-SpringBoot/image-20241008094148010.png)
+
+![image-20241008101814535](/assets/img/2024-9-27-SpringBoot/image-20241008101814535.png)
+
+![image-20241008102325776](/assets/img/2024-9-27-SpringBoot/image-20241008102325776.png)
+
+![image-20241008102354730](/assets/img/2024-9-27-SpringBoot/image-20241008102354730.png)
+
+![image-20241008102420602](/assets/img/2024-9-27-SpringBoot/image-20241008102420602.png)
+
+### 自定义starter
+
+![image-20241008125359789](/assets/img/2024-9-27-SpringBoot/image-20241008125359789.png)
+
+![image-20241008125415427](/assets/img/2024-9-27-SpringBoot/image-20241008125415427.png)
+
+### SpringBoot启动过程
