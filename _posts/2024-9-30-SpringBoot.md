@@ -441,3 +441,8 @@ bean的加载控制指根据特定情况对bean进行选择性加载以达到适
 ![image-20241008125415427](/assets/img/2024-9-27-SpringBoot/image-20241008125415427.png)
 
 ### SpringBoot启动过程
+
+![image-20241009104154387](/assets/img/2024-9-27-SpringBoot/image-20241009104154387.png)
+
+![image-20241009180316615](/assets/img/2024-9-27-SpringBoot/image-20241009180316615.png)
+

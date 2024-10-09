@@ -6,6 +6,22 @@ tags: [timeline]     # TAG names should always be lowercase
 pin: true
 ---
 # 时间线
+
+| 课程        | 时长   | 预计天数 | 完成时间  |
+| ----------- | ------ | -------- | --------- |
+| JVM         | 35:19  | 6        | 9.21-9.26 |
+| SSM         | 20:55  | 3        | 9.27-9.29 |
+| SpringBoot  | <34:28 |          | 9.30-10.9 |
+| Docker      | 3:12   | 1        | 10.9      |
+| MySQL       | 30:00  | 5        |           |
+| SpringCloud | 11:43  | 2        |           |
+| Redis       | 42:48  | 6        |           |
+| RabbitMQ    | 6:33   | 1        |           |
+| RocketMQ    | 19:30  | 3        |           |
+| 计算机网络  | 28:32  | 4        |           |
+| 操作系统    | 24:20  | 4        |           |
+| JUC         | 32:38  | 5        |           |
+
 ## 2024年
 ### 9月
 #### 7日
@@ -58,3 +74,6 @@ SpringBoot 94-108 LeetCode 120+2
 SpringBoot 109-141 LeetCode 122+6
 #### 8日
 SpringBoot 142-168 LeetCode 128+4
+#### 9日
+SpringBoot 169-174 LeetCode 132+2 Docker 1-14
+
