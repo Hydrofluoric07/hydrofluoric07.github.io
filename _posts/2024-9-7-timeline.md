@@ -13,7 +13,7 @@ pin: true
 | SSM         | 20:55  | 3        | 9.27-9.29 |
 | SpringBoot  | <34:28 |          | 9.30-10.9 |
 | Docker      | 3:12   | 1        | 10.9      |
-| MySQL       | 30:00  | 5        |           |
+| MySQL       | 30:00  | 5        | 10.10-10.11|
 | SpringCloud | 11:43  | 2        |           |
 | Redis       | 42:48  | 6        |           |
 | RabbitMQ    | 6:33   | 1        |           |
@@ -78,3 +78,5 @@ SpringBoot 142-168 LeetCode 128+4
 SpringBoot 169-174 LeetCode 132+2 Docker 1-14
 #### 10日
 MySQL 84-137 LeetCode 132+4
+#### 11日
+MySQL 138-195 LeetCode 136+5
