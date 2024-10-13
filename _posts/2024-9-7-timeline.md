@@ -13,16 +13,17 @@ pin: true
 | SSM         | 20:55  | 3        | 9.27-9.29 |
 | SpringBoot  | <34:28 |          | 9.30-10.9 |
 | Docker      | 3:12   | 1        | 10.9      |
-| MySQL       | 30:00  | 5        | 10.10-10.11|
+| MySQL       | 30:00  | 5        | 10.10-10..11 |
+| RocketMQ    | 7:50 | 1       | 10.13 |
 | SpringCloud | 11:43  | 2        |           |
 | Redis       | 42:48  | 6        |           |
 | RabbitMQ    | 6:33   | 1        |           |
-| RocketMQ    | 19:30  | 3        |           |
 | 计算机网络  | 28:32  | 4        |           |
 | 操作系统    | 24:20  | 4        |           |
 | JUC         | 32:38  | 5        |           |
 
 ## 2024年
+
 ### 9月
 #### 7日
 使用GitHub Page创建博客
@@ -80,3 +81,4 @@ SpringBoot 169-174 LeetCode 132+2 Docker 1-14
 MySQL 84-137 LeetCode 132+4
 #### 11日
 MySQL 138-195 LeetCode 136+5
+

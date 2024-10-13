@@ -7,10 +7,12 @@ typora-copy-images-to: ./..\assets\img\2024-9-27-algorithm
 typora-root-url: ./..
 ---
 
+![collections](/assets/img/2024-9-27-algorithm/collections.jpg)
+
 ## 二分
 
 ```java
-public int binarySearch(int[] nums,int targer){
+public int binarySearch(int[] nums,int target){		//返回第一个大于等于target的数字
     int l=0,r=nums.length;
     while(l<r){
         int mid=l+(r-l)/2;
@@ -63,6 +65,26 @@ class Solution {
 ```
 
 ## 滑动窗口
+
+### 定长滑动窗口
+
+```jav
+public int numOfSubarrays(int[] arr, int k, int threshold) {
+        //参数通常传入窗口长度k，可惜大部分都不会
+        long sum=0;int ans=0;
+        for(int i=0;i<arr.length;i++){
+            sum+=arr[i];
+            if(i<k-1)continue; //k-1处continue
+            if(k*threshold<=sum)ans++;
+            sum-=arr[i-k+1];
+        }
+        return ans;
+    }
+    //用LinkedList实现deque
+    //void addFirst(),void addLast(),E pollFirst(),E pollLast()
+```
+
+
 
 [长度最小的子数组]( https://leetcode.cn/problems/minimum-size-subarray-sum/solution/biao-ti-xia-biao-zong-suan-cuo-qing-kan-k81nh/)
 
