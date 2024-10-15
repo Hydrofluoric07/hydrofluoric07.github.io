@@ -4,7 +4,7 @@ date: 2024-10-14 12:37:10 +0800
 categories: [note, OperatingSystem]
 tags: [note, OperatingSystem]     # TAG names should always be lowercase
 typora-root-url: ./..
-typora-copy-images-to: ./..\assets\img\2024-10-14-OperatingSystem
+typora-copy-images-to: upload
 ---
 
 ## 操作系统的概念、功能
@@ -507,3 +507,370 @@ msg：P->Q的PCB的消息队列->Q
 ![image-20241014181156994](/assets/img/2024-10-14-OperatingSystem/image-20241014181156994.png)
 
 ![image-20241014181439767](/assets/img/2024-10-14-OperatingSystem/image-20241014181439767.png)
+
+#### 时间片轮转调度算法RR
+
+![image-20241015084012761](/assets/img/2024-10-14-OperatingSystem/image-20241015084012761.png)
+
+![image-20241015083404421](/assets/img/2024-10-14-OperatingSystem/image-20241015083404421.png)
+
+时间片为5时：
+
+![image-20241015083753713](/assets/img/2024-10-14-OperatingSystem/image-20241015083753713.png)
+
+进程调度、切换是有时间代价的（保存、恢复运行环境)，若时间片太小，会导致进程切换过于频繁，系统会花大量的时间来处理进程切换，从而导致实际用于进程执行的时间比例减少
+
+#### 优先级调度算法
+
+![image-20241015084728973](/assets/img/2024-10-14-OperatingSystem/image-20241015084728973.png)
+
+![image-20241015084653232](/assets/img/2024-10-14-OperatingSystem/image-20241015084653232.png)
+
+![image-20241015084225166](/assets/img/2024-10-14-OperatingSystem/image-20241015084225166.png)
+
+![image-20241015084353622](/assets/img/2024-10-14-OperatingSystem/image-20241015084353622.png)
+
+#### 多级反馈队列调度算法
+
+![image-20241015084805930](/assets/img/2024-10-14-OperatingSystem/image-20241015084805930.png)
+
+![image-20241015085346368](/assets/img/2024-10-14-OperatingSystem/image-20241015085346368.png)
+
+![image-20241015085049821](/assets/img/2024-10-14-OperatingSystem/image-20241015085049821.png)
+
+![image-20241015085501909](/assets/img/2024-10-14-OperatingSystem/image-20241015085501909.png)
+
+#### 多级队列调度算法
+
+![image-20241015085829906](/assets/img/2024-10-14-OperatingSystem/image-20241015085829906.png)
+
+### 进程同步、互斥
+
+进程的异步性：各并发执行的进程以各自独立、不可预知的速度向前推进
+
+![image-20241015090138342](/assets/img/2024-10-14-OperatingSystem/image-20241015090138342.png)
+
+![image-20241015090304494](/assets/img/2024-10-14-OperatingSystem/image-20241015090304494.png)
+
+![image-20241015090608057](/assets/img/2024-10-14-OperatingSystem/image-20241015090608057.png)
+
+ ![image-20241015090722168](/assets/img/2024-10-14-OperatingSystem/image-20241015090722168.png)
+
+![image-20241015090730583](/assets/img/2024-10-14-OperatingSystem/image-20241015090730583.png)
+
+### 进程互斥的软件实现方法
+
+![image-20241015090857389](/assets/img/2024-10-14-OperatingSystem/image-20241015090857389.png)
+
+![image-20241015090952119](/assets/img/2024-10-14-OperatingSystem/image-20241015090952119.png)
+
+#### 单标志法
+
+![image-20241015091154118](/assets/img/2024-10-14-OperatingSystem/image-20241015091154118.png)
+
+只能按P0→P1→P0→P1→...这样轮流访问。这种必须“轮流访问”带来的问题是，如果此时允许入临界区的进程是P0,而P0一直不访问临界区，那么虽然此时临界区空闲，但是并不允许P1访问，违反了空闲让进
+
+#### 双标志先检查法
+
+![image-20241015091608335](/assets/img/2024-10-14-OperatingSystem/image-20241015091608335.png)
+
+若按照①⑤②⑥③⑦.的顺序执行，P0和P1将会同时访问临界区，双标志先检查法的主要问题是：违反“忙则等待”原则。
+
+并发可能导致同时访问临界区
+
+原因：检查和上锁两过程间可能发生进程切换
+
+#### 双标志后检查法
+
+![image-20241015091956906](/assets/img/2024-10-14-OperatingSystem/image-20241015091956906.png)
+
+若按照①⑤②⑥…的顺序执行，P0和P1将都无法进入临界区
+，双标志后检查法解决了“忙则等待”的问题，但是又违背了“空闲让进”和“有限等待”原则，会因各进程都长期无法访问临界资源而产生“饥饿”现象。
+
+#### Peterson算法
+
+![image-20241015093605496](/assets/img/2024-10-14-OperatingSystem/image-20241015093605496.png)
+
+![image-20241015093613189](/assets/img/2024-10-14-OperatingSystem/image-20241015093613189.png)
+
+### 进程互斥的硬件实现方法
+
+#### 中断屏蔽
+
+![image-20241015093859161](/assets/img/2024-10-14-OperatingSystem/image-20241015093859161.png)
+
+#### TestAndSet指令
+
+![image-20241015094308965](/assets/img/2024-10-14-OperatingSystem/image-20241015094308965.png)
+
+#### Swap指令
+
+![image-20241015094428535](/assets/img/2024-10-14-OperatingSystem/image-20241015094428535.png)
+
+![image-20241015094436868](/assets/img/2024-10-14-OperatingSystem/image-20241015094436868.png)
+
+### 互斥锁
+
+![image-20241015094814309](/assets/img/2024-10-14-OperatingSystem/image-20241015094814309.png)
+
+![image-20241015094825476](/assets/img/2024-10-14-OperatingSystem/image-20241015094825476.png)
+
+### 信号量机制
+
+![image-20241015095120408](/assets/img/2024-10-14-OperatingSystem/image-20241015095120408.png)
+
+![image-20241015095351333](/assets/img/2024-10-14-OperatingSystem/image-20241015095351333.png)
+
+#### 整型信号量
+
+![image-20241015095835993](/assets/img/2024-10-14-OperatingSystem/image-20241015095835993.png)
+
+#### 记录型信号量
+
+![image-20241015100116876](/assets/img/2024-10-14-OperatingSystem/image-20241015100116876.png)
+
+![image-20241015100430084](/assets/img/2024-10-14-OperatingSystem/image-20241015100430084.png)
+
+![image-20241015100636541](/assets/img/2024-10-14-OperatingSystem/image-20241015100636541.png)
+
+![image-20241015100757353](/assets/img/2024-10-14-OperatingSystem/image-20241015100757353.png)
+
+### 用信号量机制实现进程互斥、同步、前驱关系
+
+#### 实现进程互斥
+
+![image-20241015101258833](/assets/img/2024-10-14-OperatingSystem/image-20241015101258833.png)
+
+#### 实现进程同步
+
+![image-20241015101409855](/assets/img/2024-10-14-OperatingSystem/image-20241015101409855.png)
+
+![image-20241015101627471](/assets/img/2024-10-14-OperatingSystem/image-20241015101627471.png)
+
+#### 实现前驱关系
+
+![image-20241015101822903](/assets/img/2024-10-14-OperatingSystem/image-20241015101822903.png)
+
+![image-20241015102032845](/assets/img/2024-10-14-OperatingSystem/image-20241015102032845.png)
+
+### 生产者消费者问题
+
+![image-20241015104820533](/assets/img/2024-10-14-OperatingSystem/image-20241015104820533.png)
+
+![image-20241015105027407](/assets/img/2024-10-14-OperatingSystem/image-20241015105027407.png)
+
+![image-20241015105130437](/assets/img/2024-10-14-OperatingSystem/image-20241015105130437.png)
+
+![image-20241015105305458](/assets/img/2024-10-14-OperatingSystem/image-20241015105305458.png)
+
+![image-20241015105541257](/assets/img/2024-10-14-OperatingSystem/image-20241015105541257.png)
+
+![image-20241015105636754](/assets/img/2024-10-14-OperatingSystem/image-20241015105636754.png)
+
+### 多生产者多消费者问题
+
+![image-20241015105808872](/assets/img/2024-10-14-OperatingSystem/image-20241015105808872.png)
+
+生产者生产的、消费者消费的都不同
+
+![image-20241015110056219](/assets/img/2024-10-14-OperatingSystem/image-20241015110056219.png)
+
+![image-20241015110836511](/assets/img/2024-10-14-OperatingSystem/image-20241015110836511.png)
+
+![image-20241015110403038](/assets/img/2024-10-14-OperatingSystem/image-20241015110403038.png)
+
+![image-20241015110503211](/assets/img/2024-10-14-OperatingSystem/image-20241015110503211.png)
+
+缓冲区大于1就需要设置一个互斥信号量mutex来互斥访问缓冲区
+
+![image-20241015110621237](/assets/img/2024-10-14-OperatingSystem/image-20241015110621237.png)
+
+![image-20241015110808501](/assets/img/2024-10-14-OperatingSystem/image-20241015110808501.png)
+
+### 吸烟者问题
+
+![image-20241015111036989](/assets/img/2024-10-14-OperatingSystem/image-20241015111036989.png)
+
+![image-20241015111251448](/assets/img/2024-10-14-OperatingSystem/image-20241015111251448.png)
+
+![image-20241015111352826](/assets/img/2024-10-14-OperatingSystem/image-20241015111352826.png)
+
+![image-20241015111555081](/assets/img/2024-10-14-OperatingSystem/image-20241015111555081.png)
+
+ ![image-20241015111658620](/assets/img/2024-10-14-OperatingSystem/image-20241015111658620.png)
+
+### 读者-写者问题
+
+![image-20241015122441833](/assets/img/2024-10-14-OperatingSystem/image-20241015122441833.png)
+
+两类进程：读进程、写进程
+
+互斥关系：写进程--写进程、写进程--读进程，读进程间不存在互斥问题
+
+![image-20241015122852391](/assets/img/2024-10-14-OperatingSystem/image-20241015122852391.png)
+
+![image-20241015122911364](/assets/img/2024-10-14-OperatingSystem/image-20241015122911364.png)
+
+潜在的问题：只要有读进程还在读，写进程就要一直阻塞等待，存在饥饿问题，在这个算法中读进程是优先的
+
+![image-20241015123819751](/assets/img/2024-10-14-OperatingSystem/image-20241015123819751.png)
+
+![image-20241015124004744](/assets/img/2024-10-14-OperatingSystem/image-20241015124004744.png)
+
+### 哲学家进餐问题
+
+![image-20241015124205364](/assets/img/2024-10-14-OperatingSystem/image-20241015124205364.png)
+
+![image-20241015124309777](/assets/img/2024-10-14-OperatingSystem/image-20241015124309777.png)
+
+如何防止死锁发生：
+
+1. 可以对哲学家施加限制条件，如最多运行四个哲学家同时进餐，可以保证至少以为哲学家拿到左右筷子
+2. 要求技术号哲学家先拿左边再拿右边，偶数号相反，可以保证相邻两个哲学家吃饭，一个可以拿起一只筷子，另一只直接阻塞，避免了占有一只等待另一只
+3. 仅当左右筷子都可用才允许拿筷子 
+
+![image-20241015125157658](https://s2.loli.net/2024/10/15/XLguMHeBYzns7yC.png)
+
+![image-20241015125252894](/assets/img/2024-10-14-OperatingSystem/image-20241015125252894.png)
+
+### 管程
+
+引入管程：编写程序困难，易出错
+
+![image-20241015161925744](https://gitee.com/HF2648/pic-bed-hydrofluoric07/raw/master/img/image-20241015161925744.png)
+
+![image-20241015162201791](https://gitee.com/HF2648/pic-bed-hydrofluoric07/raw/master/img/image-20241015162201791.png)
+
+![image-20241015162651862](https://gitee.com/HF2648/pic-bed-hydrofluoric07/raw/master/img/image-20241015162651862.png)
+
+![image-20241015162749402](https://gitee.com/HF2648/pic-bed-hydrofluoric07/raw/master/img/image-20241015162749402.png)
+
+![image-20241015162759285](https://gitee.com/HF2648/pic-bed-hydrofluoric07/raw/master/img/image-20241015162759285.png)
+
+### 死锁
+
+在并发环境下，各进程因竞争资源而造成的一种互相等待对方手里的资源，导致各进程都阻塞，都无法向前推进的现象，就是“死锁“
+发生死锁后若无外力干涉这些进程都将无法向前推进
+
+![image-20241015163401932](https://gitee.com/HF2648/pic-bed-hydrofluoric07/raw/master/img/image-20241015163401932.png)
+
+![image-20241015163725428](https://gitee.com/HF2648/pic-bed-hydrofluoric07/raw/master/img/image-20241015163725428.png)
+
+![image-20241015163853771](https://gitee.com/HF2648/pic-bed-hydrofluoric07/raw/master/img/image-20241015163853771.png)
+
+![image-20241015163945708](https://gitee.com/HF2648/pic-bed-hydrofluoric07/raw/master/img/image-20241015163945708.png)
+
+![](https://gitee.com/HF2648/pic-bed-hydrofluoric07/raw/master/img/image-20241015163945708.png)
+
+### 死锁的处理策略
+
+##### 静态策略-预防死锁
+
+###### 破坏互斥条件
+
+![image-20241015173002045](https://gitee.com/HF2648/pic-bed-hydrofluoric07/raw/master/img/image-20241015173002045.png)
+
+###### 破坏不剥夺条件
+
+![image-20241015173215948](https://gitee.com/HF2648/pic-bed-hydrofluoric07/raw/master/img/image-20241015173215948.png)
+
+###### 破坏请求和保持条件
+
+![image-20241015173411982](https://gitee.com/HF2648/pic-bed-hydrofluoric07/raw/master/img/image-20241015173411982.png)
+
+###### 破坏循环等待条件
+
+![image-20241015173741832](https://gitee.com/HF2648/pic-bed-hydrofluoric07/raw/master/img/image-20241015173741832.png)
+
+![image-20241015173817626](https://gitee.com/HF2648/pic-bed-hydrofluoric07/raw/master/img/image-20241015173817626.png)
+
+##### 动态策略-避免死锁
+
+![image-20241015182554665](https://gitee.com/HF2648/pic-bed-hydrofluoric07/raw/master/img/image-20241015182554665.png)
+
+![image-20241015182724298](https://gitee.com/HF2648/pic-bed-hydrofluoric07/raw/master/img/image-20241015182724298.png)
+
+![image-20241015182859759](https://gitee.com/HF2648/pic-bed-hydrofluoric07/raw/master/img/image-20241015182859759.png)
+
+![image-20241015182945767](https://gitee.com/HF2648/pic-bed-hydrofluoric07/raw/master/img/image-20241015182945767.png)
+
+![image-20241015183041115](https://gitee.com/HF2648/pic-bed-hydrofluoric07/raw/master/img/image-20241015183041115.png)
+
+![image-20241015183314102](https://gitee.com/HF2648/pic-bed-hydrofluoric07/raw/master/img/image-20241015183314102.png)
+
+![image-20241015183427699](https://gitee.com/HF2648/pic-bed-hydrofluoric07/raw/master/img/image-20241015183427699.png)
+
+![image-20241015183526128](https://gitee.com/HF2648/pic-bed-hydrofluoric07/raw/master/img/image-20241015183526128.png)
+
+##### 死锁的检测和解除
+
+###### 死锁的检测
+
+![image-20241015184124951](https://gitee.com/HF2648/pic-bed-hydrofluoric07/raw/master/img/image-20241015184124951.png)
+
+![image-20241015184241679](https://gitee.com/HF2648/pic-bed-hydrofluoric07/raw/master/img/image-20241015184241679.png)
+
+###### 死锁的解除
+
+![image-20241015184457249](https://gitee.com/HF2648/pic-bed-hydrofluoric07/raw/master/img/image-20241015184457249.png)
+
+![image-20241015184510736](https://gitee.com/HF2648/pic-bed-hydrofluoric07/raw/master/img/image-20241015184510736.png)
+
+## 内存
+
+### 基础知识
+
+![image-20241015184926328](https://gitee.com/HF2648/pic-bed-hydrofluoric07/raw/master/img/image-20241015184926328.png)
+
+![image-20241015185928053](https://gitee.com/HF2648/pic-bed-hydrofluoric07/raw/master/img/image-20241015185928053.png)
+
+#### 装入方式
+
+##### 绝对装入
+
+![image-20241015190103442](https://gitee.com/HF2648/pic-bed-hydrofluoric07/raw/master/img/image-20241015190103442.png)
+
+##### 可重定位装入
+
+![image-20241015190242271](https://gitee.com/HF2648/pic-bed-hydrofluoric07/raw/master/img/image-20241015190242271.png)
+
+##### 动态运行时装入
+
+![image-20241015190426041](https://gitee.com/HF2648/pic-bed-hydrofluoric07/raw/master/img/image-20241015190426041.png)
+
+![image-20241015190617841](https://gitee.com/HF2648/pic-bed-hydrofluoric07/raw/master/img/image-20241015190617841.png)
+
+#### 链接的三种方式
+
+![image-20241015190721652](https://gitee.com/HF2648/pic-bed-hydrofluoric07/raw/master/img/image-20241015190721652.png)
+
+![image-20241015190729463](https://gitee.com/HF2648/pic-bed-hydrofluoric07/raw/master/img/image-20241015190729463.png)
+
+### 内存管理
+
+![image-20241015191144447](https://gitee.com/HF2648/pic-bed-hydrofluoric07/raw/master/img/image-20241015191144447.png)
+
+![image-20241015191343530](https://gitee.com/HF2648/pic-bed-hydrofluoric07/raw/master/img/image-20241015191343530.png)
+
+4.操作系统需要提供内存保护功能，保护各进程在各自的存储空间内运行，互不干扰
+
+内存保护方法：
+
+1. 在CPU中设置一对上下限寄存器，存放上下限，访问前检查是否越界
+2. ![image-20241015191807383](https://gitee.com/HF2648/pic-bed-hydrofluoric07/raw/master/img/image-20241015191807383.png)
+
+![image-20241015191903720](https://gitee.com/HF2648/pic-bed-hydrofluoric07/raw/master/img/image-20241015191903720.png)
+
+### 覆盖技术
+
+![image-20241015192052132](https://gitee.com/HF2648/pic-bed-hydrofluoric07/raw/master/img/image-20241015192052132.png)
+
+![image-20241015192257808](https://gitee.com/HF2648/pic-bed-hydrofluoric07/raw/master/img/image-20241015192257808.png)
+
+### 交换技术
+
+![image-20241015192521396](https://gitee.com/HF2648/pic-bed-hydrofluoric07/raw/master/img/image-20241015192521396.png)
+
+![image-20241015192801310](https://gitee.com/HF2648/pic-bed-hydrofluoric07/raw/master/img/image-20241015192801310.png)
+
+![image-20241015192821782](https://gitee.com/HF2648/pic-bed-hydrofluoric07/raw/master/img/image-20241015192821782.png)
