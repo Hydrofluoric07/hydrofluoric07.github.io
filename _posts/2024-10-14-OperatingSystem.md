@@ -4,7 +4,6 @@ date: 2024-10-14 12:37:10 +0800
 categories: [note, OperatingSystem]
 tags: [note, OperatingSystem]     # TAG names should always be lowercase
 typora-root-url: ./..
-typora-copy-images-to: upload
 ---
 
 ## 操作系统的概念、功能
@@ -874,3 +873,230 @@ msg：P->Q的PCB的消息队列->Q
 ![image-20241015192801310](https://gitee.com/HF2648/pic-bed-hydrofluoric07/raw/master/img/image-20241015192801310.png)
 
 ![image-20241015192821782](https://gitee.com/HF2648/pic-bed-hydrofluoric07/raw/master/img/image-20241015192821782.png)
+
+### 连续分配管理方式
+
+#### 单一连续分配
+
+![image-20241016084422484](/assets/img/2024-10-14-OperatingSystem/image-20241016084422484.png)
+
+#### 固定分区分配
+
+![image-20241016084635155](/assets/img/2024-10-14-OperatingSystem/image-20241016084635155.png)
+
+![image-20241016084828264](/assets/img/2024-10-14-OperatingSystem/image-20241016084828264.png)
+
+#### 动态分区分配
+
+![image-20241016085007008](/assets/img/2024-10-14-OperatingSystem/image-20241016085007008.png)
+
+![image-20241016085115267](/assets/img/2024-10-14-OperatingSystem/image-20241016085115267.png)
+
+![image-20241016085757993](/assets/img/2024-10-14-OperatingSystem/image-20241016085757993.png)
+
+![image-20241016085905952](/assets/img/2024-10-14-OperatingSystem/image-20241016085905952.png)
+
+### 动态分区分配算法
+
+#### 首次适应算法
+
+![image-20241016090143787](/assets/img/2024-10-14-OperatingSystem/image-20241016090143787.png)
+
+#### 最佳适应算法
+
+![image-20241016090405315](/assets/img/2024-10-14-OperatingSystem/image-20241016090405315.png)
+
+#### 最坏适应算法
+
+![image-20241016090540011](/assets/img/2024-10-14-OperatingSystem/image-20241016090540011.png)
+
+#### 邻近适应算法
+
+![image-20241016090839146](/assets/img/2024-10-14-OperatingSystem/image-20241016090839146.png)
+
+![image-20241016090849677](/assets/img/2024-10-14-OperatingSystem/image-20241016090849677.png)
+
+### 基本分页存储管理
+
+![image-20241016102947081](/assets/img/2024-10-14-OperatingSystem/image-20241016102947081.png)
+
+![image-20241016103436962](/assets/img/2024-10-14-OperatingSystem/image-20241016103436962.png)
+
+![image-20241016103341976](/assets/img/2024-10-14-OperatingSystem/image-20241016103341976.png)
+
+![image-20241016103610837](/assets/img/2024-10-14-OperatingSystem/image-20241016103610837.png)
+
+![image-20241016103932352](/assets/img/2024-10-14-OperatingSystem/image-20241016103932352.png)
+
+![image-20241016104126753](/assets/img/2024-10-14-OperatingSystem/image-20241016104126753.png)
+
+![image-20241016104210953](/assets/img/2024-10-14-OperatingSystem/image-20241016104210953.png)
+
+![image-20241016104220966](/assets/img/2024-10-14-OperatingSystem/image-20241016104220966.png)
+
+### 基本地址变换机构
+
+实现逻辑地址转换到物理地址
+
+![image-20241016104755600](/assets/img/2024-10-14-OperatingSystem/image-20241016104755600.png)
+
+![image-20241016105043017](/assets/img/2024-10-14-OperatingSystem/image-20241016105043017.png)
+
+![image-20241016105300562](/assets/img/2024-10-14-OperatingSystem/image-20241016105300562.png)
+
+![image-20241016105435898](/assets/img/2024-10-14-OperatingSystem/image-20241016105435898.png)
+
+![image-20241016105515159](/assets/img/2024-10-14-OperatingSystem/image-20241016105515159.png)
+
+### 具有块表的地址变换机构
+
+快表，又称联想寄存器(TLB,ttranslation lookaside buffer),是一种访问速度比内存快很多的高速缓存(TLB不是内存！)，用来存放最近访问的页表项的副本，可以加速地址变换的速度。内存中的页表常称为慢表。
+
+![image-20241016110401878](/assets/img/2024-10-14-OperatingSystem/image-20241016110401878.png)
+
+![image-20241016110649693](/assets/img/2024-10-14-OperatingSystem/image-20241016110649693.png)
+
+![image-20241016110726359](/assets/img/2024-10-14-OperatingSystem/image-20241016110726359.png)
+
+时间局部性：如果执行了程序中的某条指令，那么不久后这条指令很有可能再次执行；如果某个数据被访问过，不久之后该数据很可能再次被访问。（因为程序中存在大量的循环）
+
+空间局部性：一旦程序访问了某个存储单元，在不久之后，其附近的存储单元也很有可能被访问。（因为很多数据在内存中都是连续存放的)
+
+可能连续访问同一个页表
+
+![image-20241016110942783](/assets/img/2024-10-14-OperatingSystem/image-20241016110942783.png)
+
+### 两级页表
+
+![image-20241016180247995](/assets/img/2024-10-14-OperatingSystem/image-20241016180247995.png)
+
+![image-20241016180431513](/assets/img/2024-10-14-OperatingSystem/image-20241016180431513.png)
+
+![image-20241016180759173](/assets/img/2024-10-14-OperatingSystem/image-20241016180759173.png)
+
+![image-20241016180910830](/assets/img/2024-10-14-OperatingSystem/image-20241016180910830.png)
+
+![image-20241016181007826](/assets/img/2024-10-14-OperatingSystem/image-20241016181007826.png)
+
+![image-20241016181158378](/assets/img/2024-10-14-OperatingSystem/image-20241016181158378.png)
+
+![image-20241016181231456](/assets/img/2024-10-14-OperatingSystem/image-20241016181231456.png)
+
+### 基本分段存储管理
+
+![image-20241016181454565](/assets/img/2024-10-14-OperatingSystem/image-20241016181454565.png)
+
+![image-20241016181648332](/assets/img/2024-10-14-OperatingSystem/image-20241016181648332.png)
+
+![image-20241016181852953](/assets/img/2024-10-14-OperatingSystem/image-20241016181852953.png)
+
+![image-20241016182259697](/assets/img/2024-10-14-OperatingSystem/image-20241016182259697.png)
+
+![image-20241016182505070](/assets/img/2024-10-14-OperatingSystem/image-20241016182505070.png)
+
+![image-20241016182603879](/assets/img/2024-10-14-OperatingSystem/image-20241016182603879.png)
+
+![image-20241016182721208](/assets/img/2024-10-14-OperatingSystem/image-20241016182721208.png)
+
+![image-20241016182806610](/assets/img/2024-10-14-OperatingSystem/image-20241016182806610.png)
+
+![image-20241016182821790](/assets/img/2024-10-14-OperatingSystem/image-20241016182821790.png)
+
+### 段页式管理方式
+
+![image-20241016183155530](/assets/img/2024-10-14-OperatingSystem/image-20241016183155530.png)
+
+![image-20241016183234148](/assets/img/2024-10-14-OperatingSystem/image-20241016183234148.png)
+
+![image-20241016183338373](/assets/img/2024-10-14-OperatingSystem/image-20241016183338373.png)
+
+![image-20241016183528065](/assets/img/2024-10-14-OperatingSystem/image-20241016183528065.png)
+
+![image-20241016183719792](/assets/img/2024-10-14-OperatingSystem/image-20241016183719792.png)
+
+![image-20241016183746114](/assets/img/2024-10-14-OperatingSystem/image-20241016183746114.png)
+
+### 虚拟内存
+
+ ![image-20241016184140852](/assets/img/2024-10-14-OperatingSystem/image-20241016184140852.png)
+
+![image-20241016184456192](/assets/img/2024-10-14-OperatingSystem/image-20241016184456192.png)
+
+![image-20241016184620976](/assets/img/2024-10-14-OperatingSystem/image-20241016184620976.png)
+
+![image-20241016184644915](/assets/img/2024-10-14-OperatingSystem/image-20241016184644915.png)
+
+### 请求分页存储管理
+
+![image-20241016185016797](/assets/img/2024-10-14-OperatingSystem/image-20241016185016797.png)
+
+![image-20241016185154863](/assets/img/2024-10-14-OperatingSystem/image-20241016185154863.png)
+
+![image-20241016185323890](/assets/img/2024-10-14-OperatingSystem/image-20241016185323890.png)
+
+![image-20241016185423632](/assets/img/2024-10-14-OperatingSystem/image-20241016185423632.png)
+
+![image-20241016185528844](/assets/img/2024-10-14-OperatingSystem/image-20241016185528844.png)
+
+![image-20241016185640635](/assets/img/2024-10-14-OperatingSystem/image-20241016185640635.png)
+
+![image-20241016185832746](/assets/img/2024-10-14-OperatingSystem/image-20241016185832746.png)
+
+在具有快表机构的请求分页系统中，访问一个逻辑地址
+时，若发生缺页，则地址变换步骤是：查快表（未命中）一一查慢表（发现未调入内存）一一调页（调入的页面对应的表项会直接加入快表)一一查快表（命中)一一访问目标内存单元
+
+![image-20241016185949762](/assets/img/2024-10-14-OperatingSystem/image-20241016185949762.png)
+
+### 页面置换算法
+
+![image-20241016191338013](/assets/img/2024-10-14-OperatingSystem/image-20241016191338013.png)
+
+#### 最佳置换算法OPT
+
+![image-20241016191907670](/assets/img/2024-10-14-OperatingSystem/image-20241016191907670.png)
+
+#### 先进先出置换算法FIFO
+
+![image-20241016192130079](/assets/img/2024-10-14-OperatingSystem/image-20241016192130079.png)
+
+#### 最近最久未使用LRU
+
+![image-20241016192303227](/assets/img/2024-10-14-OperatingSystem/image-20241016192303227.png)
+
+算法性能好，实现困难，开销大
+
+#### 时钟置换算法CLOCK
+
+![image-20241016192555101](/assets/img/2024-10-14-OperatingSystem/image-20241016192555101.png)
+
+![image-20241016193001955](/assets/img/2024-10-14-OperatingSystem/image-20241016193001955.png)
+
+![image-20241016193140395](/assets/img/2024-10-14-OperatingSystem/image-20241016193140395.png)
+
+### 页面分配策略、抖动、工作集
+
+![image-20241016193502940](/assets/img/2024-10-14-OperatingSystem/image-20241016193502940.png)
+
+![image-20241016193733716](/assets/img/2024-10-14-OperatingSystem/image-20241016193733716.png)
+
+![image-20241016193912848](/assets/img/2024-10-14-OperatingSystem/image-20241016193912848.png)![image-20241016194054628](/assets/img/2024-10-14-OperatingSystem/image-20241016194054628.png)
+
+![image-20241016194145108](/assets/img/2024-10-14-OperatingSystem/image-20241016194145108.png)
+
+![image-20241016194310184](/assets/img/2024-10-14-OperatingSystem/image-20241016194310184.png)
+
+![image-20241016194359499](/assets/img/2024-10-14-OperatingSystem/image-20241016194359499.png)
+
+### 内存映射文件
+
+Memory-Mapped Files，内存映射文件一一操作系统向上层程序员提供的功能（系统调用），方便程序员访问文件数据，方便多个进程共享同一个文件
+
+![image-20241016194717121](/assets/img/2024-10-14-OperatingSystem/image-20241016194717121.png)
+
+![image-20241016194931932](/assets/img/2024-10-14-OperatingSystem/image-20241016194931932.png)
+
+多个进程可以映射同一个文件，实现共享
+
+在物理内存中，一个文件对应同一份数据，当一个进程修改文件数据时，另一个进程可以立马“看到“
+
+![image-20241016195054079](/assets/img/2024-10-14-OperatingSystem/image-20241016195054079.png)
