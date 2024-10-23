@@ -93,3 +93,11 @@ OS 23-44 LeetCode 149+3
 OS 45-57 LeetCode 152+6
 #### 17日
 OS 58-84 LeetCode 158+0
+#### 18日
+Redis 1-33 LeetCode 158+3
+#### 20日
+Redis 66-90 LeetCode 164+5
+#### 21日
+Redis 91-109 LeetCode 169+2
+#### 22日
+Redis 110-137 LeetCode 171+2
